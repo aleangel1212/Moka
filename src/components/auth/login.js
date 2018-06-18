@@ -2,17 +2,22 @@ import React from 'react';
 import { View } from 'react-native';
 
 import { Button } from '../common';
+import colors from '../../colors';
 
 import LoginForm from './login-form';
 
-const Login = () => {
+const Login = props => {
 	return (
 		<View style={styles.pageContainer}>
 			<View style={styles.loginFormContainer}>
 				<LoginForm />
 			</View>
 			<View style={styles.createAccountContainer}>
-				<Button>create account</Button>
+				<Button
+					onPress={() => props.navigation.navigate('CreateAccount')}
+				>
+					create account
+				</Button>
 			</View>
 		</View>
 	);
@@ -20,7 +25,7 @@ const Login = () => {
 
 const styles = {
 	pageContainer: {
-		backgroundColor: '#573052',
+		backgroundColor: colors.primary,
 		padding: 30,
 		flexDirection: 'column',
 		justifyContent: 'space-between',

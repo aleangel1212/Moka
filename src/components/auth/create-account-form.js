@@ -23,10 +23,20 @@ const LoginForm = props => {
 			<HeaderImage source={Logo} />
 
 			<FormSection>
+				<Input name="name" placeholder="name" />
 				<Input name="email" placeholder="email" />
-				<Input name="password" placeholder="password" type="password" />
-				<Button onPress={handleSubmit(submit)}>login</Button>
 			</FormSection>
+
+			<FormSection>
+				<Input name="password" placeholder="password" type="password" />
+				<Input
+					name="confirmPassword"
+					placeholder="confirm password"
+					type="password"
+				/>
+			</FormSection>
+
+			<Button onPress={handleSubmit(submit)}>submit</Button>
 		</FormContainer>
 	);
 };

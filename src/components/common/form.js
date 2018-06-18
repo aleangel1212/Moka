@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import { TextInput, Text, TouchableOpacity } from 'react-native';
+import { TextInput, Text, TouchableOpacity, View, Image } from 'react-native';
 
 import colors from '../../colors';
 
@@ -43,16 +43,45 @@ export const Button = props => (
 	</TouchableOpacity>
 );
 
+export const HeaderImage = props => (
+	<Image
+		source={props.source}
+		style={styles.headerImageStyle}
+		resizeMode="contain"
+	/>
+);
+
+export const FormContainer = props => (
+	<View style={styles.formContainerStyle}>{props.children}</View>
+);
+
+export const FormSection = props => (
+	<View style={styles.formSectionStyle}>{props.children}</View>
+);
+
 const styles = {
+	formContainerStyle: {
+		justifyContent: 'space-around',
+	},
+	formSectionStyle: {
+		marginBottom: 20,
+	},
+	headerImageStyle: {
+		height: 100,
+		marginBottom: 40,
+		width: undefined,
+	},
 	inputStyle: {
 		backgroundColor: colors.red,
 		color: colors.white,
 		textAlign: 'center',
 		fontSize: 18,
 		padding: 15,
+		marginBottom: 20,
 	},
 	buttonStyle: {
-		padding: 20,
+		padding: 15,
+		marginBottom: 20,
 		fontSize: 18,
 		textAlign: 'center',
 		color: colors.yellow,

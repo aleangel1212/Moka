@@ -60,9 +60,7 @@ export const FormSection = props => (
 );
 
 const styles = {
-	formContainerStyle: {
-		justifyContent: 'space-around',
-	},
+	formContainerStyle: {},
 	formSectionStyle: {
 		marginBottom: 20,
 	},

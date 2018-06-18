@@ -5,7 +5,7 @@ import ReduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
 
-import Router from './router';
+import RootStack from './router';
 
 class App extends Component {
 	render() {
@@ -13,7 +13,7 @@ class App extends Component {
 			<Provider
 				store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}
 			>
-				<Router />
+				<RootStack />
 			</Provider>
 		);
 	}

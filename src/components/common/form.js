@@ -1,6 +1,13 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import { TextInput, Text, TouchableOpacity, View, Image } from 'react-native';
+import {
+	TextInput,
+	Text,
+	TouchableOpacity,
+	View,
+	Image,
+	ActivityIndicator,
+} from 'react-native';
 
 import colors from '../../colors';
 
@@ -37,11 +44,18 @@ export const Input = props => {
 	);
 };
 
-export const Button = props => (
-	<TouchableOpacity onPress={props.onPress}>
-		<Text style={[styles.buttonStyle, props.style]}>{props.children}</Text>
-	</TouchableOpacity>
-);
+export const Button = props => {
+	if (props.loading)
+		return <ActivityIndicator size="large" color={colors.yellow} />;
+
+	return (
+		<TouchableOpacity onPress={props.onPress}>
+			<Text style={[styles.buttonStyle, props.style]}>
+				{props.children}
+			</Text>
+		</TouchableOpacity>
+	);
+};
 
 export const HeaderImage = props => (
 	<Image

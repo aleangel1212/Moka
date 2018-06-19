@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { View } from 'react-native';
+
+import * as actions from '../../actions';
 
 import CreateAccountForm from './create-account-form';
 import colors from '../../colors';
@@ -7,7 +10,7 @@ import colors from '../../colors';
 const CreateAccount = props => {
 	return (
 		<View style={styles.pageContainer}>
-			<CreateAccountForm />
+			<CreateAccountForm createUser={props.createUser} />
 		</View>
 	);
 };
@@ -21,4 +24,4 @@ const styles = {
 	},
 };
 
-export default CreateAccount;
+export default connect(null, actions)(CreateAccount);

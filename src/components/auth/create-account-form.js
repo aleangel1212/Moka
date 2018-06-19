@@ -11,12 +11,12 @@ import {
 
 import Logo from '../../img/logo.png';
 
-const submit = values => {
-	console.log('submitting form', values);
-};
+const CreateAccountForm = props => {
+	const submit = values => {
+		return props.createUser(values);
+	};
 
-const LoginForm = props => {
-	const { handleSubmit } = props;
+	const { handleSubmit, submitting } = props;
 
 	return (
 		<FormContainer>
@@ -36,11 +36,13 @@ const LoginForm = props => {
 				/>
 			</FormSection>
 
-			<Button onPress={handleSubmit(submit)}>submit</Button>
+			<Button onPress={handleSubmit(submit)} loading={submitting}>
+				submit
+			</Button>
 		</FormContainer>
 	);
 };
 
 export default reduxForm({
-	form: 'login',
-})(LoginForm);
+	form: 'createAccount',
+})(CreateAccountForm);

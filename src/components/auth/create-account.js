@@ -8,9 +8,15 @@ import CreateAccountForm from './create-account-form';
 import colors from '../../colors';
 
 const CreateAccount = props => {
+	const onSubmit = values => {
+		return props
+			.createUser(values)
+			.then(res => props.navigation.navigate('CoffeeStation'));
+	};
+
 	return (
 		<View style={styles.pageContainer}>
-			<CreateAccountForm createUser={props.createUser} />
+			<CreateAccountForm onSubmit={onSubmit} />
 		</View>
 	);
 };

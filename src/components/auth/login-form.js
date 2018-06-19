@@ -11,10 +11,6 @@ import {
 
 import Logo from '../../img/logo.png';
 
-const submit = values => {
-	console.log('submitting form', values);
-};
-
 const LoginForm = props => {
 	const { handleSubmit } = props;
 
@@ -25,7 +21,7 @@ const LoginForm = props => {
 			<FormSection>
 				<Input name="email" placeholder="email" />
 				<Input name="password" placeholder="password" type="password" />
-				<Button onPress={handleSubmit(submit)}>login</Button>
+				<Button onPress={handleSubmit(props.onSubmit)}>login</Button>
 			</FormSection>
 		</FormContainer>
 	);

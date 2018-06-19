@@ -12,10 +12,6 @@ import {
 import Logo from '../../img/logo.png';
 
 const CreateAccountForm = props => {
-	const submit = values => {
-		return props.createUser(values);
-	};
-
 	const { handleSubmit, submitting } = props;
 
 	return (
@@ -36,7 +32,7 @@ const CreateAccountForm = props => {
 				/>
 			</FormSection>
 
-			<Button onPress={handleSubmit(submit)} loading={submitting}>
+			<Button onPress={handleSubmit(props.onSubmit)} loading={submitting}>
 				submit
 			</Button>
 		</FormContainer>

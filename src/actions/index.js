@@ -20,3 +20,18 @@ export const createUser = user => {
 	};
 };
 
+export const loginUser = user => {
+	return dispatch => {
+		return new Promise((resolve, reject) => {
+			axios
+				.post(`${API_URL}/auth/login`, user)
+				.then(res => {
+					dispatch({ type: types.LOGIN_USER, payload: res.data });
+					resolve(res.data);
+				})
+				.catch(err => {
+					reject(err);
+				});
+		});
+	};
+};

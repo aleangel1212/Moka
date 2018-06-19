@@ -12,7 +12,7 @@ import {
 import Logo from '../../img/logo.png';
 
 const LoginForm = props => {
-	const { handleSubmit } = props;
+	const { handleSubmit, submitting } = props;
 
 	return (
 		<FormContainer>
@@ -21,7 +21,12 @@ const LoginForm = props => {
 			<FormSection>
 				<Input name="email" placeholder="email" />
 				<Input name="password" placeholder="password" type="password" />
-				<Button onPress={handleSubmit(props.onSubmit)}>login</Button>
+				<Button
+					onPress={handleSubmit(props.onSubmit)}
+					loading={submitting}
+				>
+					login
+				</Button>
 			</FormSection>
 		</FormContainer>
 	);

@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text } from 'react-native';
 
-const CoffeeStation = props => {
-	console.log(props.token);
+import * as actions from '../../actions';
 
-	return <Text>Coffee Station</Text>;
-};
+class CoffeeStation extends Component {
+	render() {
+		return <Text>Coffee Station</Text>;
+	}
+}
 
-const mapStateToProps = state => ({
-	token: state.auth.token,
-});
+const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps)(CoffeeStation);
+export default connect(mapStateToProps, actions)(CoffeeStation);

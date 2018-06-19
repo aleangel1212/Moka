@@ -4,8 +4,7 @@ import { View } from 'react-native';
 
 import * as actions from '../../actions';
 
-import { Button } from '../common';
-import colors from '../../colors';
+import { Button, ScreenContainer } from '../common';
 
 import LoginForm from './login-form';
 
@@ -13,11 +12,11 @@ const Login = props => {
 	const onSubmit = values => {
 		return props
 			.loginUser(values)
-			.then(res => props.navigation.navigate('CoffeeStation'));
+			.catch(res => props.notify(res.response.data.error));
 	};
 
 	return (
-		<View style={styles.pageContainer}>
+		<ScreenContainer>
 			<View style={styles.loginFormContainer}>
 				<LoginForm onSubmit={onSubmit} />
 			</View>
@@ -28,18 +27,11 @@ const Login = props => {
 					create account
 				</Button>
 			</View>
-		</View>
+		</ScreenContainer>
 	);
 };
 
 const styles = {
-	pageContainer: {
-		backgroundColor: colors.primary,
-		padding: 30,
-		flexDirection: 'column',
-		justifyContent: 'space-between',
-		flex: 1,
-	},
 	loginFormContainer: {
 		justifyContent: 'center',
 		flex: 4,

@@ -27,7 +27,11 @@ export const createUser = user => {
 		return new Promise((resolve, reject) => {
 			axios
 				.post(`${API_URL}/users`, user)
-				.then(res => resolve(dispatch(authUser(res.data.token))))
+				.then(res => {
+					dispatch(authUser(res.data.token));
+					dispatch(fetchMe());
+					resolve({ token: res.data.token });
+				})
 				.catch(err => reject(err));
 		});
 	};
@@ -40,7 +44,11 @@ export const loginUser = user => {
 		return new Promise((resolve, reject) => {
 			axios
 				.post(`${API_URL}/auth/login`, user)
-				.then(res => resolve(dispatch(authUser(res.data.token))))
+				.then(res => {
+					dispatch(authUser(res.data.token));
+					dispatch(fetchMe());
+					resolve({ token: res.data.token });
+				})
 				.catch(err => reject(err));
 		});
 	};

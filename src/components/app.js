@@ -3,9 +3,9 @@ import { AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { LoadingScreen } from './common';
 
-import * as actions from '../actions';
+import { AuthRouter, AppRouter } from './router';
 
-import { AuthStack, AppStack } from './router';
+import * as actions from '../actions';
 
 class App extends Component {
 	componentWillMount() {
@@ -22,9 +22,9 @@ class App extends Component {
 	render() {
 		if (this.props.loggedIn == null) return <LoadingScreen />;
 
-		if (!this.props.loggedIn) return <AuthStack />;
+		if (!this.props.loggedIn) return <AuthRouter />;
 
-		return <AppStack />;
+		return <AppRouter />;
 	}
 }
 

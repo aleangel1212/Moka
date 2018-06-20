@@ -1,13 +1,16 @@
+import React from 'react';
+import { StatusBar, View } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import Login from './auth/login';
 import CreateAccount from './auth/create-account';
 
 import CoffeeStation from './coffee-station/coffee-station';
+import NewCoffee from './coffee-station/new-coffee';
 
 import colors from '../colors';
 
-export const AuthStack = createStackNavigator(
+const AuthStack = createStackNavigator(
 	{
 		Login,
 		CreateAccount,
@@ -15,26 +18,39 @@ export const AuthStack = createStackNavigator(
 	{ headerMode: 'none' },
 );
 
-export const AppStack = createStackNavigator(
+const AppStack = createStackNavigator(
 	{
 		CoffeeStation,
+		NewCoffee,
 	},
 	{
 		initalRouteName: 'CoffeeStation',
 		navigationOptions: {
 			headerStyle: {
 				backgroundColor: colors.red,
-				height: 100,
-				position: 'relative',
 			},
 			headerTintColor: colors.yellow,
 			headerTitleStyle: {
 				fontWeight: '300',
 				fontSize: 24,
-				position: 'absolute',
-				left: 0,
-				bottom: 20,
 			},
 		},
 	},
+);
+
+export const AppRouter = () => (
+	<View style={{ flex: 1 }}>
+		<StatusBar backgroundColor={colors.redDark} barStyle="light-content" />
+		<AppStack />
+	</View>
+);
+
+export const AuthRouter = () => (
+	<View style={{ flex: 1 }}>
+		<StatusBar
+			backgroundColor={colors.primaryDark}
+			barStyle="light-content"
+		/>
+		<AuthStack />
+	</View>
 );

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { ScreenContainer, LoadingScreen } from '../common';
+import { ScreenContainer, LoadingScreen, TileContainer } from '../common';
 
 import CoffeeDetail from './coffee-detail';
 import CoffeeTile from './coffee-tile';
+import AddTile from './add-tile';
 
 import * as actions from '../../actions';
 
@@ -34,15 +35,14 @@ class CoffeeStation extends Component {
 			<ScreenContainer style={{ padding: 0 }}>
 				<ScrollView>
 					<CoffeeDetail pref={me.prefs[0]} loading={loading} />
-					<View
-						style={{
-							flexWrap: 'wrap',
-							alignItems: 'flex-start',
-							flexDirection: 'row',
-						}}
-					>
+					<TileContainer>
 						{this.renderPrefs(me.prefs.slice(1))}
-					</View>
+						<AddTile
+							onPress={() =>
+								this.props.navigation.navigate('NewCoffee')
+							}
+						/>
+					</TileContainer>
 				</ScrollView>
 			</ScreenContainer>
 		);

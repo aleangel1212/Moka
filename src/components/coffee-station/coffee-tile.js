@@ -1,6 +1,6 @@
 import React from 'react';
-import { TouchableNativeFeedback } from 'react-native';
 import { View, Text, Image } from 'react-native';
+import { Tile } from '../common';
 
 import Cup from './cup';
 
@@ -21,7 +21,6 @@ const selectImage = type => {
 
 const CoffeeTile = props => {
 	const {
-		tileContainerStyle,
 		detailContainerStyle,
 		cupContainerStyle,
 		textStyle,
@@ -31,36 +30,24 @@ const CoffeeTile = props => {
 	const { cream, sugar, type } = props.pref;
 
 	return (
-		<TouchableNativeFeedback onPress={() => props.onPress(props.pref)}>
-			<View style={tileContainerStyle}>
-				<View style={cupContainerStyle}>
-					<Cup height={100} cream={cream} />
-				</View>
-				<View style={detailContainerStyle}>
-					<Image
-						source={selectImage(type)}
-						style={iconStyle}
-						resizeMode="contain"
-					/>
-					<Text style={textStyle}>{cream}%</Text>
-					<Text style={textStyle}>{sugar}g</Text>
-				</View>
+		<Tile onPress={props.onPress}>
+			<View style={cupContainerStyle}>
+				<Cup height={100} cream={cream} />
 			</View>
-		</TouchableNativeFeedback>
+			<View style={detailContainerStyle}>
+				<Image
+					source={selectImage(type)}
+					style={iconStyle}
+					resizeMode="contain"
+				/>
+				<Text style={textStyle}>{cream}%</Text>
+				<Text style={textStyle}>{sugar}g</Text>
+			</View>
+		</Tile>
 	);
 };
 
 const styles = {
-	tileContainerStyle: {
-		backgroundColor: colors.red,
-		borderColor: colors.primary,
-		borderWidth: 0.5,
-		aspectRatio: 1,
-		flexDirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'center',
-		width: '50%',
-	},
 	cupContainerStyle: {
 		flex: 1,
 		alignItems: 'flex-end',

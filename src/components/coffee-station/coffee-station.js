@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text } from 'react-native';
+import { ScreenContainer } from '../common';
+
+import CoffeeDetail from './coffee-detail';
 
 import * as actions from '../../actions';
 
 class CoffeeStation extends Component {
+	static navigationOptions = {
+		title: 'coffee station',
+	};
+
 	render() {
-		return <Text>Coffee Station</Text>;
+		return (
+			<ScreenContainer style={{ padding: 0 }}>
+				<CoffeeDetail />
+			</ScreenContainer>
+		);
 	}
 }
 

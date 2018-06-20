@@ -61,3 +61,30 @@ export const fetchMe = () => {
 		});
 	};
 };
+
+export const updateUser = user => {
+	return dispatch => {
+		return new Promise((resolve, reject) => {
+			dispatch({ type: types.USERS_LOADING });
+
+			axios
+				.patch(`${API_URL}/users/me`, user)
+				.then(res => {
+					dispatch({ type: types.UPDATE_ME, payload: res.data });
+					resolve(res.data);
+				})
+				.catch(err => reject(err));
+		});
+	};
+};
+
+export const setDefaultCoffee = (user, index) => {
+	const newUser = { ...user };
+
+	const temp = newUser.prefs[0];
+
+	newUser.prefs[0] = newUser.prefs[index];
+	newUser.prefs[index] = temp;
+
+	return updateUser(newUser);
+};

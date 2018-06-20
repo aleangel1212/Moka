@@ -1,4 +1,5 @@
 import React from 'react';
+import { LoadingScreen } from '../common';
 import { View, Text } from 'react-native';
 
 import Cup from './cup';
@@ -6,6 +7,28 @@ import Cup from './cup';
 import colors from '../../colors';
 
 const CoffeeDetail = props => {
+	const renderDetail = loading => {
+		if (loading)
+			return (
+				<View style={{ minHeight: 185 }}>
+					<LoadingScreen />
+				</View>
+			);
+
+		return (
+			<View style={detailContainer}>
+				<View style={cupContainer}>
+					<Cup cream={cream} />
+				</View>
+				<View style={detailContent}>
+					<Text style={detailText}>flavor: {type}</Text>
+					<Text style={detailText}>cream: {cream}%</Text>
+					<Text style={detailText}>sugar: {sugar}g</Text>
+				</View>
+			</View>
+		);
+	};
+
 	const {
 		mainContainer,
 		headerText,
@@ -20,16 +43,9 @@ const CoffeeDetail = props => {
 	return (
 		<View style={mainContainer}>
 			<Text style={headerText}>default coffee</Text>
-			<View style={detailContainer}>
-				<View style={cupContainer}>
-					<Cup cream={cream} />
-				</View>
-				<View style={detailContent}>
-					<Text style={detailText}>flavor: {type}</Text>
-					<Text style={detailText}>cream: {cream}%</Text>
-					<Text style={detailText}>sugar: {sugar}g</Text>
-				</View>
-			</View>
+
+			{renderDetail(props.loading)}
+
 			<Text style={[detailText, { textAlign: 'center' }]}>
 				select default coffee
 			</Text>

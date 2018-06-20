@@ -15,19 +15,25 @@ class CoffeeStation extends Component {
 
 	renderPrefs(prefs) {
 		return prefs.map((pref, index) => (
-			<CoffeeTile key={index} pref={pref} />
+			<CoffeeTile
+				key={index}
+				pref={pref}
+				onPress={() =>
+					this.props.setDefaultCoffee(this.props.me, index + 1)
+				}
+			/>
 		));
 	}
 
 	render() {
-		const { me } = this.props;
+		const { me, loading } = this.props;
 
 		if (!me) return <LoadingScreen />;
 
 		return (
 			<ScreenContainer style={{ padding: 0 }}>
 				<ScrollView>
-					<CoffeeDetail pref={me.prefs[0]} />
+					<CoffeeDetail pref={me.prefs[0]} loading={loading} />
 					<View
 						style={{
 							flexWrap: 'wrap',
@@ -44,7 +50,8 @@ class CoffeeStation extends Component {
 }
 
 const mapStateToProps = state => ({
-	me: state.me,
+	me: state.users.me,
+	loading: state.users.loading,
 });
 
 export default connect(mapStateToProps, actions)(CoffeeStation);

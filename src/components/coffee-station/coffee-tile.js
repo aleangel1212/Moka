@@ -31,7 +31,7 @@ const CoffeeTile = props => {
 	const { cream, sugar, type } = props.pref;
 
 	return (
-		<TouchableNativeFeedback onPress={() => console.log(props.pref)}>
+		<TouchableNativeFeedback onPress={() => props.onPress(props.pref)}>
 			<View style={tileContainerStyle}>
 				<View style={cupContainerStyle}>
 					<Cup height={100} cream={cream} />

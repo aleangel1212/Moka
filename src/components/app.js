@@ -15,6 +15,7 @@ class App extends Component {
 			const { token } = JSON.parse(value);
 
 			this.props.authUser(token);
+			this.props.fetchMe().catch(() => this.props.logoutUser());
 		});
 	}
 

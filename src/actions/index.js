@@ -46,11 +46,11 @@ export const loginUser = user => {
 	};
 };
 
-export const fetchMe = user => {
+export const fetchMe = () => {
 	return dispatch => {
 		return new Promise((resolve, reject) => {
 			axios
-				.get(`${API_URL}/users/me`, user)
+				.get(`${API_URL}/users/me`)
 				.then(res => {
 					dispatch({ type: types.FETCH_ME, payload: res.data });
 					resolve(res.data);

@@ -15,17 +15,19 @@ const CoffeeDetail = props => {
 		detailText,
 	} = styles;
 
+	const { type, cream, sugar } = props.pref;
+
 	return (
 		<View style={mainContainer}>
 			<Text style={headerText}>default coffee</Text>
 			<View style={detailContainer}>
 				<View style={cupContainer}>
-					<Cup cream={20} />
+					<Cup cream={cream} />
 				</View>
 				<View style={detailContent}>
-					<Text style={detailText}>flavor: hazelnut</Text>
-					<Text style={detailText}>cream: 20%</Text>
-					<Text style={detailText}>sugar: 1g</Text>
+					<Text style={detailText}>flavor: {type}</Text>
+					<Text style={detailText}>cream: {cream}%</Text>
+					<Text style={detailText}>sugar: {sugar}g</Text>
 				</View>
 			</View>
 			<Text style={[detailText, { textAlign: 'center' }]}>

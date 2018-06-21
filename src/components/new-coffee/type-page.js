@@ -4,13 +4,13 @@ import { ScreenContainer, Cup, Radio } from '../common';
 
 import colors from '../../colors';
 
-const FormPage = () => (
+const TypePage = props => (
 	<ScreenContainer style={styles.screenContainerStyle}>
 		<View style={styles.cupContainer}>
 			<Text style={styles.textStyle}>flavor</Text>
-			<Cup />
+			<Cup type={props.type} />
 		</View>
-		<Radio name="flavor" data={['regular', 'hazelnut']} />
+		<Radio name="type" data={['regular', 'hazelnut']} />
 	</ScreenContainer>
 );
 
@@ -31,4 +31,4 @@ const styles = {
 	},
 };
 
-export default FormPage;
+export default TypePage;

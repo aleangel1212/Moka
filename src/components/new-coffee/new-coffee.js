@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { ScreenContainer } from '../common';
 
 import NewCoffeeForm from './new-coffee-form';
@@ -17,11 +18,16 @@ class NewCoffee extends Component {
 			<ScreenContainer style={{ padding: 0 }}>
 				<NewCoffeeForm
 					onSubmit={this.onSubmit.bind(this)}
-					initialValues={{ flavor: 'regular', cream: 0, sugar: 0 }}
+					initialValues={{ type: 'regular', cream: 0, sugar: 0 }}
+					currentValues={this.props.currentValues}
 				/>
 			</ScreenContainer>
 		);
 	}
 }
 
-export default NewCoffee;
+const mapStateToProps = state => ({
+	currentValues: state.form.newCoffee ? state.form.newCoffee.values : {},
+});
+
+export default connect(mapStateToProps)(NewCoffee);

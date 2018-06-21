@@ -24,7 +24,7 @@ const AppStack = createStackNavigator(
 		NewCoffee,
 	},
 	{
-		initialRouteName: 'CoffeeStation',
+		initialRouteName: 'NewCoffee',
 		navigationOptions: {
 			headerStyle: {
 				backgroundColor: colors.red,

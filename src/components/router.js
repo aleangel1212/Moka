@@ -6,7 +6,7 @@ import Login from './auth/login';
 import CreateAccount from './auth/create-account';
 
 import CoffeeStation from './coffee-station/coffee-station';
-import NewCoffee from './coffee-station/new-coffee';
+import NewCoffee from './new-coffee/new-coffee';
 
 import colors from '../colors';
 
@@ -24,7 +24,7 @@ const AppStack = createStackNavigator(
 		NewCoffee,
 	},
 	{
-		initalRouteName: 'CoffeeStation',
+		initialRouteName: 'CoffeeStation',
 		navigationOptions: {
 			headerStyle: {
 				backgroundColor: colors.red,

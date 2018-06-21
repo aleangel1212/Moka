@@ -1,22 +1,15 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { Tile } from '../common';
-
-import Cup from './cup';
+import { Tile, Cup } from '../common';
 
 import regularSource from '../../img/regular.png';
 import hazelnutSource from '../../img/hazelnut.png';
 
 import colors from '../../colors';
 
-const selectImage = type => {
-	switch (type) {
-		case 'hazelnut':
-			return hazelnutSource;
-
-		default:
-			return regularSource;
-	}
+const imageMap = {
+	regular: regularSource,
+	hazelnut: hazelnutSource,
 };
 
 const CoffeeTile = props => {
@@ -32,11 +25,11 @@ const CoffeeTile = props => {
 	return (
 		<Tile onPress={props.onPress}>
 			<View style={cupContainerStyle}>
-				<Cup height={100} cream={cream} />
+				<Cup height={100} cream={cream} type={type} />
 			</View>
 			<View style={detailContainerStyle}>
 				<Image
-					source={selectImage(type)}
+					source={imageMap[type]}
 					style={iconStyle}
 					resizeMode="contain"
 				/>

@@ -1,8 +1,6 @@
 import React from 'react';
-import { LoadingScreen } from '../common';
 import { View, Text } from 'react-native';
-
-import Cup from './cup';
+import { LoadingScreen, Cup } from '../common';
 
 import colors from '../../colors';
 
@@ -18,7 +16,7 @@ const CoffeeDetail = props => {
 		return (
 			<View style={detailContainer}>
 				<View style={cupContainer}>
-					<Cup cream={cream} />
+					<Cup cream={cream} type={type} />
 				</View>
 				<View style={detailContent}>
 					<Text style={detailText}>flavor: {type}</Text>

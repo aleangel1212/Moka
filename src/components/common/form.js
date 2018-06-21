@@ -9,6 +9,8 @@ import {
 	ActivityIndicator,
 } from 'react-native';
 
+import RadioGroup from './radio-group';
+
 import colors from '../../colors';
 
 const renderInput = ({
@@ -28,6 +30,32 @@ const renderInput = ({
 			underlineColorAndroid="transparent"
 			autoCorrect={false}
 			secureTextEntry={type === 'password'}
+		/>
+	);
+};
+
+const renderRadioForm = ({
+	input: { onChange, ...restInput },
+	style,
+	data,
+}) => {
+	return (
+		<RadioGroup
+			data={data}
+			onChange={onChange}
+			buttonColor={colors.yellow}
+			labelColor={colors.yellow}
+			labelSize={20}
+		/>
+	);
+};
+
+export const Radio = props => {
+	return (
+		<Field
+			name={props.name}
+			component={renderRadioForm}
+			data={props.data}
 		/>
 	);
 };
@@ -60,17 +88,19 @@ export const Button = props => {
 export const HeaderImage = props => (
 	<Image
 		source={props.source}
-		style={styles.headerImageStyle}
+		style={[styles.headerImageStyle, props.style]}
 		resizeMode="contain"
 	/>
 );
 
 export const FormContainer = props => (
-	<View style={styles.formContainerStyle}>{props.children}</View>
+	<View style={[styles.formContainerStyle, props.style]}>
+		{props.children}
+	</View>
 );
 
 export const FormSection = props => (
-	<View style={styles.formSectionStyle}>{props.children}</View>
+	<View style={[styles.formSectionStyle, props.style]}>{props.children}</View>
 );
 
 const styles = {

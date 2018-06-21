@@ -4,13 +4,17 @@ import { ScreenContainer } from '../common';
 
 import NewCoffeeForm from './new-coffee-form';
 
+import * as actions from '../../actions';
+
 class NewCoffee extends Component {
 	static navigationOptions = {
 		title: 'new coffee',
 	};
 
 	onSubmit(values) {
-		console.log(values);
+		return this.props
+			.addCoffee(this.props.me, values)
+			.then(res => this.props.navigation.goBack());
 	}
 
 	render() {
@@ -27,7 +31,8 @@ class NewCoffee extends Component {
 }
 
 const mapStateToProps = state => ({
+	me: state.users.me,
 	currentValues: state.form.newCoffee ? state.form.newCoffee.values : {},
 });
 
-export default connect(mapStateToProps)(NewCoffee);
+export default connect(mapStateToProps, actions)(NewCoffee);

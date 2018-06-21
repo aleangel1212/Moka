@@ -96,3 +96,11 @@ export const setDefaultCoffee = (user, index) => {
 
 	return updateUser(newUser);
 };
+
+export const addCoffee = (user, newPref) => {
+	const newUser = { ...user };
+
+	newUser.prefs = [newPref, ...newUser.prefs];
+
+	return updateUser(newUser);
+};

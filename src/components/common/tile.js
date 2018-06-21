@@ -1,4 +1,6 @@
 import React from 'react';
+import { Vibration } from 'react-native';
+
 import {
 	Platform,
 	TouchableNativeFeedback,
@@ -12,7 +14,13 @@ const TouchableComponent =
 	Platform.OS === 'ios' ? TouchableWithoutFeedback : TouchableNativeFeedback;
 
 const Tile = props => (
-	<TouchableComponent onPress={props.onPress} onLongPress={props.onLongPress}>
+	<TouchableComponent
+		onPress={props.onPress}
+		onLongPress={() => {
+			Vibration.vibrate(25);
+			props.onLongPress();
+		}}
+	>
 		<View style={styles.tileContainerStyle}>{props.children}</View>
 	</TouchableComponent>
 );

@@ -4,6 +4,7 @@ import { Pages } from 'react-native-pages';
 import { FormContainer, Button } from '../common';
 
 import TypePage from './type-page';
+import CreamPage from './cream-page';
 
 const NewCoffee = props => {
 	const { handleSubmit, submitting, currentValues } = props;
@@ -11,7 +12,8 @@ const NewCoffee = props => {
 	return (
 		<FormContainer style={{ flex: 1 }}>
 			<Pages>
-				<TypePage type={currentValues.type} />
+				<TypePage currentValues={currentValues} />
+				<CreamPage currentValues={currentValues} />
 			</Pages>
 			<Button onPress={handleSubmit(props.onSubmit)}>submit</Button>
 		</FormContainer>

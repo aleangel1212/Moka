@@ -8,7 +8,10 @@ const TypePage = props => (
 	<ScreenContainer style={styles.screenContainerStyle}>
 		<View style={styles.cupContainer}>
 			<Text style={styles.textStyle}>flavor</Text>
-			<Cup type={props.type} />
+			<Cup
+				type={props.currentValues.type}
+				cream={props.currentValues.cream}
+			/>
 		</View>
 		<Radio name="type" data={['regular', 'hazelnut']} />
 	</ScreenContainer>

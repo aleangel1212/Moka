@@ -4,3 +4,4 @@ export * from './loading-screen';
 export * from './cup';
 export * from './tile';
 export * from './tile-container';
+export * from './modal';

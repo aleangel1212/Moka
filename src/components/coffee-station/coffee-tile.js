@@ -23,7 +23,7 @@ const CoffeeTile = props => {
 	const { cream, sugar, type } = props.pref;
 
 	return (
-		<Tile onPress={props.onPress}>
+		<Tile onPress={props.onPress} onLongPress={props.onLongPress}>
 			<View style={cupContainerStyle}>
 				<Cup height={100} cream={cream} type={type} />
 			</View>

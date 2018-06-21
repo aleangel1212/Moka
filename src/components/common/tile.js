@@ -12,7 +12,7 @@ const TouchableComponent =
 	Platform.OS === 'ios' ? TouchableWithoutFeedback : TouchableNativeFeedback;
 
 const Tile = props => (
-	<TouchableComponent onPress={props.onPress}>
+	<TouchableComponent onPress={props.onPress} onLongPress={props.onLongPress}>
 		<View style={styles.tileContainerStyle}>{props.children}</View>
 	</TouchableComponent>
 );
@@ -27,6 +27,7 @@ const styles = {
 		justifyContent: 'center',
 		alignItems: 'center',
 		width: '50%',
+		position: 'relative',
 	},
 };
 

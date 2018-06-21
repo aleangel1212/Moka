@@ -100,7 +100,15 @@ export const setDefaultCoffee = (user, index) => {
 export const addCoffee = (user, newPref) => {
 	const newUser = { ...user };
 
-	newUser.prefs = [newPref, ...newUser.prefs];
+	newUser.prefs = [...newUser.prefs, newPref];
+
+	return updateUser(newUser);
+};
+
+export const deleteCoffee = (user, index) => {
+	const newUser = { ...user };
+
+	newUser.prefs = newUser.prefs.filter((pref, i) => i !== index);
 
 	return updateUser(newUser);
 };

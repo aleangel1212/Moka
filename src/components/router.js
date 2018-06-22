@@ -18,7 +18,7 @@ const AuthStack = createStackNavigator(
 	{ headerMode: 'none' },
 );
 
-const AppStack = createStackNavigator(
+const CoffeeStack = createStackNavigator(
 	{
 		CoffeeStation,
 		NewCoffee,
@@ -38,10 +38,10 @@ const AppStack = createStackNavigator(
 	},
 );
 
-export const AppRouter = () => (
+export const CoffeeRouter = () => (
 	<View style={{ flex: 1 }}>
 		<StatusBar backgroundColor={colors.redDark} barStyle="light-content" />
-		<AppStack />
+		<CoffeeStack />
 	</View>
 );
 

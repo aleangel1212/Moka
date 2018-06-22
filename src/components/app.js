@@ -3,7 +3,7 @@ import { AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { LoadingScreen } from './common';
 
-import { AuthRouter, AppRouter } from './router';
+import { AuthRouter, CoffeeRouter } from './router';
 
 import * as actions from '../actions';
 
@@ -24,7 +24,7 @@ class App extends Component {
 
 		if (!this.props.loggedIn) return <AuthRouter />;
 
-		return <AppRouter />;
+		return <CoffeeRouter />;
 	}
 }
 

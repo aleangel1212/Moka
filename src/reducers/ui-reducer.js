@@ -2,7 +2,7 @@ import { OPEN_NAV, CLOSE_NAV, SET_NAV } from '../actions/types';
 
 const INITIAL_STATE = {
 	navMenu: {
-		isOpen: true,
+		isOpen: false,
 	},
 };
 

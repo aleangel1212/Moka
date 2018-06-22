@@ -3,7 +3,7 @@ import { AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { LoadingScreen } from './common';
 
-import { AuthRouter, CoffeeRouter } from './router';
+import { AuthRouter, AppRouter } from './router';
 
 import * as actions from '../actions';
 
@@ -24,10 +24,13 @@ class App extends Component {
 
 		if (!this.props.loggedIn) return <AuthRouter />;
 
-		return <CoffeeRouter />;
+		return <AppRouter stack={this.props.stack} />;
 	}
 }
 
-const mapStateToProps = state => ({ loggedIn: state.auth.loggedIn });
+const mapStateToProps = state => ({
+	loggedIn: state.auth.loggedIn,
+	stack: state.stack,
+});
 
 export default connect(mapStateToProps, actions)(App);

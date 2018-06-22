@@ -48,30 +48,28 @@ class CoffeeStation extends Component {
 		if (!me) return <LoadingScreen />;
 
 		return (
-			<NavMenu navigation={navigation}>
-				<ScreenContainer style={{ padding: 0 }}>
-					<DeleteModal
-						visible={modalContent !== null}
-						cupValues={modalContent || {}}
-						onSuccess={() => {
-							this.props.deleteCoffee(me, modalContent.index);
-							this.setState({ modalContent: null });
-						}}
-						onFail={() => this.setState({ modalContent: null })}
-					/>
-					<ScrollView>
-						<CoffeeDetail pref={me.prefs[0]} loading={loading} />
-						<TileContainer>
-							{this.renderPrefs(me.prefs.slice(1))}
-							<AddTile
-								onPress={() =>
-									this.props.navigation.navigate('NewCoffee')
-								}
-							/>
-						</TileContainer>
-					</ScrollView>
-				</ScreenContainer>
-			</NavMenu>
+			<ScreenContainer style={{ padding: 0 }}>
+				<DeleteModal
+					visible={modalContent !== null}
+					cupValues={modalContent || {}}
+					onSuccess={() => {
+						this.props.deleteCoffee(me, modalContent.index);
+						this.setState({ modalContent: null });
+					}}
+					onFail={() => this.setState({ modalContent: null })}
+				/>
+				<ScrollView>
+					<CoffeeDetail pref={me.prefs[0]} loading={loading} />
+					<TileContainer>
+						{this.renderPrefs(me.prefs.slice(1))}
+						<AddTile
+							onPress={() =>
+								this.props.navigation.navigate('NewCoffee')
+							}
+						/>
+					</TileContainer>
+				</ScrollView>
+			</ScreenContainer>
 		);
 	}
 }

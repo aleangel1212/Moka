@@ -6,7 +6,7 @@ import { ScreenContainer } from '../../common';
 
 import NavRows from './nav-rows';
 
-import { setNav, closeNav } from '../../../actions';
+import { setStack, closeNav, setNav } from '../../../actions';
 
 import colors from '../../../colors';
 
@@ -16,7 +16,7 @@ const Menu = props => {
 	return (
 		<View style={menuContainerStyle}>
 			<Text style={headerStyle}>menu</Text>
-			<NavRows navigation={props.navigation} closeNav={props.closeNav} />
+			<NavRows setStack={props.setStack} closeNav={props.closeNav} />
 		</View>
 	);
 };
@@ -26,10 +26,7 @@ let NavMenu = props => {
 		<ScreenContainer style={{ padding: 0, backgroundColor: colors.yellow }}>
 			<SideMenu
 				menu={
-					<Menu
-						navigation={props.navigation}
-						closeNav={props.closeNav}
-					/>
+					<Menu setStack={props.setStack} closeNav={props.closeNav} />
 				}
 				isOpen={props.isOpen}
 				menuPosition="right"
@@ -56,6 +53,6 @@ const styles = {
 
 const mapStateToProps = state => ({ isOpen: state.ui.navMenu.isOpen });
 
-NavMenu = connect(mapStateToProps, { setNav, closeNav })(NavMenu);
+NavMenu = connect(mapStateToProps, { setStack, closeNav, setNav })(NavMenu);
 
 export { NavMenu };

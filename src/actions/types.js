@@ -7,3 +7,4 @@ export const USERS_LOADING = 'USERS_LOADING';
 export const OPEN_NAV = 'OPEN_NAV';
 export const CLOSE_NAV = 'CLOSE_NAV';
 export const SET_NAV = 'SET_NAV';
+export const SELECT_STACK = 'SELECT_STACK';

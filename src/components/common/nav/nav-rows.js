@@ -7,9 +7,9 @@ import coffeStationSource from '../../../img/coffee-station.png';
 import cupsSource from '../../../img/cups.png';
 import settingsSource from '../../../img/settings.png';
 
-const NavRows = ({ navigation, closeNav }) => {
-	const navigateTo = screen => {
-		navigation.navigate(screen);
+const NavRows = ({ setStack, closeNav }) => {
+	const navigateTo = router => {
+		setStack(router);
 		closeNav();
 	};
 
@@ -18,17 +18,17 @@ const NavRows = ({ navigation, closeNav }) => {
 			<NavRow
 				text="coffee station"
 				imageSource={coffeStationSource}
-				onPress={() => navigateTo('CoffeeStation')}
+				onPress={() => navigateTo('CoffeeStack')}
 			/>
 			<NavRow
 				text="cups"
 				imageSource={cupsSource}
-				onPress={() => navigateTo('Cups')}
+				onPress={() => navigateTo('CupsStack')}
 			/>
 			<NavRow
 				text="settings"
 				imageSource={settingsSource}
-				onPress={() => navigateTo('Settings')}
+				onPress={() => navigateTo('SettingsStack')}
 			/>
 		</View>
 	);

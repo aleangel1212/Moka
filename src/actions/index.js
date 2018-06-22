@@ -14,6 +14,10 @@ export const notify = text => {
 	};
 };
 
+export const openNav = () => ({ type: types.OPEN_NAV });
+export const closeNav = () => ({ type: types.CLOSE_NAV });
+export const setNav = isOpen => ({ type: types.SET_NAV, payload: isOpen });
+
 export const authUser = token => {
 	AsyncStorage.setItem('@Moka:x-auth', JSON.stringify({ token }));
 

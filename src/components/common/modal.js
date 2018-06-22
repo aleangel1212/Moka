@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal as NativeModal, View } from 'react-native';
+import { Modal as NativeModal } from 'react-native';
 
 const Modal = props => {
 	const { animationType, transparent, visible, onRequestClose } = props;

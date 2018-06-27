@@ -6,8 +6,9 @@ import NavRow from './nav-row';
 import coffeStationSource from '../../../img/coffee-station.png';
 import cupsSource from '../../../img/cups.png';
 import settingsSource from '../../../img/settings.png';
+import powerSource from '../../../img/power.png';
 
-const NavRows = ({ setStack, closeNav }) => {
+const NavRows = ({ setStack, closeNav, logoutUser }) => {
 	const navigateTo = router => {
 		setStack(router);
 		closeNav();
@@ -29,6 +30,11 @@ const NavRows = ({ setStack, closeNav }) => {
 				text="settings"
 				imageSource={settingsSource}
 				onPress={() => navigateTo('SettingsStack')}
+			/>
+			<NavRow
+				text="sign out"
+				imageSource={powerSource}
+				onPress={() => logoutUser()}
 			/>
 		</View>
 	);

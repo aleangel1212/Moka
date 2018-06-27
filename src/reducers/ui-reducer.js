@@ -1,4 +1,4 @@
-import { OPEN_NAV, CLOSE_NAV, SET_NAV } from '../actions/types';
+import { OPEN_NAV, CLOSE_NAV, SET_NAV, UNAUTH_USER } from '../actions/types';
 
 const INITIAL_STATE = {
 	navMenu: {
@@ -11,6 +11,7 @@ export default (state = INITIAL_STATE, action) => {
 		case OPEN_NAV:
 			return { ...state, navMenu: { ...state.navMenu, isOpen: true } };
 
+		case UNAUTH_USER:
 		case CLOSE_NAV:
 			return { ...state, navMenu: { ...state.navMenu, isOpen: false } };
 

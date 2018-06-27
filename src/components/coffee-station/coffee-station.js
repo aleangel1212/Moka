@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import {
-	NavMenu,
 	ScreenContainer,
 	LoadingScreen,
 	TileContainer,
+	AddTile,
 } from '../common';
 
 import CoffeeDetail from './coffee-detail';
 import CoffeeTile from './coffee-tile';
-import AddTile from './add-tile';
 import DeleteModal from './delete-modal';
 
 import * as actions from '../../actions';
@@ -42,7 +41,7 @@ class CoffeeStation extends Component {
 	}
 
 	render() {
-		const { me, loading, navigation } = this.props;
+		const { me, loading, navigation, deleteCoffee } = this.props;
 		const { modalContent } = this.state;
 
 		if (!me) return <LoadingScreen />;
@@ -53,7 +52,7 @@ class CoffeeStation extends Component {
 					visible={modalContent !== null}
 					cupValues={modalContent || {}}
 					onSuccess={() => {
-						this.props.deleteCoffee(me, modalContent.index);
+						deleteCoffee(me, modalContent.index);
 						this.setState({ modalContent: null });
 					}}
 					onFail={() => this.setState({ modalContent: null })}
@@ -63,9 +62,7 @@ class CoffeeStation extends Component {
 					<TileContainer>
 						{this.renderPrefs(me.prefs.slice(1))}
 						<AddTile
-							onPress={() =>
-								this.props.navigation.navigate('NewCoffee')
-							}
+							onPress={() => navigation.navigate('NewCoffee')}
 						/>
 					</TileContainer>
 				</ScrollView>

@@ -10,6 +10,7 @@ import CoffeeStation from './coffee-station/coffee-station';
 import NewCoffee from './new-coffee/new-coffee';
 
 import Cups from './cups/cups';
+import NewCup from './new-cup/new-cup';
 
 import colors from '../colors';
 
@@ -44,6 +45,7 @@ const CoffeeStack = createStackNavigator(
 const CupsStack = createStackNavigator(
 	{
 		Cups,
+		NewCup,
 	},
 	{
 		initialRouteName: 'Cups',

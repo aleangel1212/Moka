@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScreenContainer, Cup, Button } from '../common';
 
-const SugarPage = props => {
+const FinishPage = props => {
 	const { screenContainerStyle } = styles;
 	const { type, cream } = props.currentValues;
 
@@ -23,4 +23,4 @@ const styles = {
 	},
 };
 
-export default SugarPage;
+export default FinishPage;

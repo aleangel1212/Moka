@@ -21,7 +21,9 @@ const Tile = props => (
 			props.onLongPress();
 		}}
 	>
-		<View style={styles.tileContainerStyle}>{props.children}</View>
+		<View style={[styles.tileContainerStyle, props.style]}>
+			{props.children}
+		</View>
 	</TouchableComponent>
 );
 

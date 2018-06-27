@@ -64,3 +64,19 @@ export const deleteCoffee = (user, index) => {
 
 	return updateUser(newUser);
 };
+
+export const addCup = (user, newCup) => {
+	const newUser = { ...user };
+
+	newUser.cups = [...newUser.cups, newCup];
+
+	return updateUser(newUser);
+};
+
+export const deleteCup = (user, index) => {
+	const newUser = { ...user };
+
+	newUser.cups = newUser.cups.filter((cup, i) => i !== index);
+
+	return updateUser(newUser);
+};

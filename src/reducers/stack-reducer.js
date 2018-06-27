@@ -1,6 +1,6 @@
 import { SELECT_STACK } from '../actions/types';
 
-const INITIAL_STATE = 'CupsStack';
+const INITIAL_STATE = 'CoffeeStack';
 
 export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {

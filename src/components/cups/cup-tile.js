@@ -16,7 +16,7 @@ const CupTile = props => {
 		>
 			<Text style={textStyle}>{name}</Text>
 			<Cup height={75} />
-			<Text style={textStyle}>{size}oz</Text>
+			<Text style={textStyle}>{size} oz</Text>
 		</Tile>
 	);
 };

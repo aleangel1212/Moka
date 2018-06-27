@@ -36,6 +36,8 @@ const CoffeeDetail = props => {
 		detailText,
 	} = styles;
 
+	if (!props.pref) return null;
+
 	const { type, cream, sugar } = props.pref;
 
 	return (

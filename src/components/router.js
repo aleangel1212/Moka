@@ -1,7 +1,7 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, View, Text } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-import { NavMenu } from './common';
+import { NavMenu, NavBurger } from './common';
 
 import Login from './auth/login';
 import CreateAccount from './auth/create-account';
@@ -13,6 +13,18 @@ import Cups from './cups/cups';
 import NewCup from './new-cup/new-cup';
 
 import colors from '../colors';
+
+const navigationOptions = {
+	headerStyle: {
+		backgroundColor: colors.red,
+	},
+	headerTintColor: colors.yellow,
+	headerTitleStyle: {
+		fontWeight: '300',
+		fontSize: 24,
+	},
+	headerRight: <NavBurger />,
+};
 
 const AuthStack = createStackNavigator(
 	{
@@ -29,16 +41,7 @@ const CoffeeStack = createStackNavigator(
 	},
 	{
 		initialRouteName: 'CoffeeStation',
-		navigationOptions: {
-			headerStyle: {
-				backgroundColor: colors.red,
-			},
-			headerTintColor: colors.yellow,
-			headerTitleStyle: {
-				fontWeight: '300',
-				fontSize: 24,
-			},
-		},
+		navigationOptions,
 	},
 );
 
@@ -49,16 +52,7 @@ const CupsStack = createStackNavigator(
 	},
 	{
 		initialRouteName: 'Cups',
-		navigationOptions: {
-			headerStyle: {
-				backgroundColor: colors.red,
-			},
-			headerTintColor: colors.yellow,
-			headerTitleStyle: {
-				fontWeight: '300',
-				fontSize: 24,
-			},
-		},
+		navigationOptions,
 	},
 );
 

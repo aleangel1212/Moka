@@ -7,3 +7,4 @@ export * from './tile-container';
 export * from './modal';
 export * from './nav/nav-menu';
 export * from './add-tile';
+export * from './nav-burger';

@@ -20,7 +20,7 @@ const CoffeeDetail = props => {
 				</View>
 				<View style={detailContent}>
 					<Text style={detailText}>flavor: {type}</Text>
-					<Text style={detailText}>cream: {cream} shots</Text>
+					<Text style={detailText}>cream: {cream} tbps</Text>
 					<Text style={detailText}>sugar: {sugar}g</Text>
 				</View>
 			</View>

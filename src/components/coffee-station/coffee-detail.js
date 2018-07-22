@@ -16,11 +16,11 @@ const CoffeeDetail = props => {
 		return (
 			<View style={detailContainer}>
 				<View style={cupContainer}>
-					<Cup cream={cream} type={type} />
+					<Cup cream={cream * 15} type={type} />
 				</View>
 				<View style={detailContent}>
 					<Text style={detailText}>flavor: {type}</Text>
-					<Text style={detailText}>cream: {cream}%</Text>
+					<Text style={detailText}>cream: {cream} shots</Text>
 					<Text style={detailText}>sugar: {sugar}g</Text>
 				</View>
 			</View>

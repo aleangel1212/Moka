@@ -7,7 +7,7 @@ const FinishPage = props => {
 
 	return (
 		<ScreenContainer style={screenContainerStyle}>
-			<Cup type={type} cream={cream} />
+			<Cup type={type} cream={cream * 15} />
 			<Button onPress={props.onSubmit} loading={props.loading}>
 				finish
 			</Button>

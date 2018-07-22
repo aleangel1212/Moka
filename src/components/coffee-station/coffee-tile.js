@@ -25,7 +25,7 @@ const CoffeeTile = props => {
 	return (
 		<Tile onPress={props.onPress} onLongPress={props.onLongPress}>
 			<View style={cupContainerStyle}>
-				<Cup height={100} cream={cream} type={type} />
+				<Cup height={100} cream={cream * 15} type={type} />
 			</View>
 			<View style={detailContainerStyle}>
 				<Image
@@ -33,7 +33,6 @@ const CoffeeTile = props => {
 					style={iconStyle}
 					resizeMode="contain"
 				/>
-				<Text style={textStyle}>{cream}%</Text>
 				<Text style={textStyle}>{sugar}g</Text>
 			</View>
 		</Tile>

@@ -18,15 +18,15 @@ const CreamPage = props => {
 		<ScreenContainer style={screenContainerStyle}>
 			<View style={cupContainer}>
 				<Text style={textStyle}>cream</Text>
-				<Cup type={type} cream={cream} />
-				<Text style={[textStyle, { marginRight: -10 }]}>{cream}%</Text>
+				<Cup type={type} cream={cream * 15} />
+				<Text style={[textStyle, { marginRight: -10 }]}>{cream} shots</Text>
 			</View>
 			<View style={sliderContainerStyle}>
 				<Slider
 					style={sliderStyle}
-					step={5}
+					step={1}
 					name="cream"
-					maximumValue={70}
+					maximumValue={4}
 					minimumValue={0}
 				/>
 			</View>

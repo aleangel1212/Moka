@@ -18,15 +18,15 @@ const SugarPage = props => {
 		<ScreenContainer style={screenContainerStyle}>
 			<View style={cupContainer}>
 				<Text style={textStyle}>sugar</Text>
-				<Cup type={type} cream={cream} />
+				<Cup type={type} cream={cream * 15} />
 				<Text style={[textStyle, { marginRight: -10 }]}>{sugar}g</Text>
 			</View>
 			<View style={sliderContainerStyle}>
 				<Slider
 					style={sliderStyle}
-					step={1}
+					step={4}
 					name="sugar"
-					maximumValue={5}
+					maximumValue={20}
 					minimumValue={0}
 				/>
 			</View>
